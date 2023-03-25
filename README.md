@@ -1,2 +1,2 @@
 # EvicertiaRepository
-Repository In Practices Evicertia 
+Repository For Practices In Evicertia 
