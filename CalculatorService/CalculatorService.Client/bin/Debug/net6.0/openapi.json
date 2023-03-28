@@ -1,0 +1,19 @@
+{
+	"paths": {
+		"/Add": {
+			"post": {
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Unable to process request "
+					},
+					"500": {
+						"description": "an unexpected error codition was triggered which mad imporsiible to fulfill request. Prease try again or contact support"
+					}
+				}
+			}
+		}
+	}
+}
