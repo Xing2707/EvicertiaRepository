@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CalculatorService.Library;
-using CalculatorService.ServerAPI.Models;
+using RestSharp;
+using System.Text.RegularExpressions;
 
 namespace CalculatorService.ServerAPI.Controllers
 {
@@ -8,12 +9,6 @@ namespace CalculatorService.ServerAPI.Controllers
 	[Route("[controller]")]
 	public class CalculatorService : ControllerBase
 	{
-
-		private static readonly string[] Summaries = new[]
-		{
-		"Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-	};
-
 		private readonly ILogger<CalculatorService> _logger;
 
 		public CalculatorService(ILogger<CalculatorService> logger)
@@ -21,65 +16,79 @@ namespace CalculatorService.ServerAPI.Controllers
 			_logger = logger;
 		}
 
-
+		//Url http://localhost:5062/CalculatorService/Add
 		[HttpPost("Add")]
-		public AddResponse Post(AddRequest request)
+		public Addition.AddResponse Post(Addition.AddRequest request)
 		{
+			//Create variable,AddressController object usin funtion calculateAdd calculate request return result in variable finaly return result using Addition.AddResponse static function result(integer).
 			var num = 0;
-			var addressController = new AddressController();
-			num = addressController.calculateAdd(request.Addends);
-			return AddResponse.AddResult(num);
+			var addressController = new AdditionController();
+			var headers = Request.Headers;
+			num = addressController.CalculateAdd(request.Addends);
+
+			addressController.SaveAdd(headers,request.Addends,num);
+
+			return Addition.AddResponse.result(num);
 		}
 
 		[HttpPost("Sub")]
-		public SubResponse Post(SubRequest request)
+		public Subtraction.SubResponse Post(Subtraction.SubRequest request)
 		{
-		var addressController = new AddressController();
 			var num = 0;
-			var subController = new SubController();
+			var subController = new SubtractioController();
 			num = subController.CalculateSub(request.Minuend, request.Subtrahend);
-			return SubResponse.SubResult(num);
+			return Subtraction.SubResponse.Result(num);
 		}
 
 		[HttpPost("Mult")]
-		public MultResponse Post(MultRequest request)
+		public Multiplication.MultResponse Post(Multiplication.MultRequest request)
 		{
 			var num = 0;
-			var multController = new MultController();
+			var multController = new MultiplicationController();
 			num = multController.CalculateMult(request.Factors);
-			return MultResponse.MultResult(num);
+			return Multiplication.MultResponse.Result(num);
 		}
 
 		[HttpPost("Div")]
-		public DivResponse Post(DivRequest request)
+		public Divide.DivResponse Post(Divide.DivRequest request)
 		{
 			var array = new int[2];
 			var quotient = 0;
 			var remainder = 0;
-			var divController = new DivController();
+			var divController = new DivideController();
 			array = divController.CalculateDiv(request.Dividend, request.Divisor);
-			for(var i = 0; i < array.Length; i++ )
+			for (var i = 0; i < array.Length; i++)
 			{
-				if(quotient == 0)
+				if (quotient == 0)
 				{
 					quotient = array[i];
-				}else
+				} else
 				{
 					remainder = array[i];
 				}
 			}
-			return DivResponse.DivResult(quotient,remainder);
+			return Divide.DivResponse.Result(quotient, remainder);
 		}
+
 		[HttpPost("Sqrt")]
-		public SqrtResponse Post(SqrtRequest request)
+		public Square.SqrtResponse Post(Square.SqrtRequest request)
 		{
 			var num = 0;
-			var sqrtController = new SqrtResponseController();
+			var sqrtController = new SquareController();
 			num = sqrtController.CalculateSqrt(request.Number);
-			return SqrtResponse.ResultSqrt(num);
+			return Square.SqrtResponse.Result(num);
 		}
 
-		
+		[HttpPost("Journal/{id}")]
 
+		public Journal.journalResponse Post(Journal.JournalRequet requet)
+		{
+			var journalController = new JournalController();
+			var dictionary = journalController.GetJournalData(requet.Id);
+			var operation = dictionary[0];
+			var calculation = dictionary[1];
+			var date = dictionary[2];
+			return Journal.journalResponse.Result(operation, calculation, date);
+		}
 	}
 }

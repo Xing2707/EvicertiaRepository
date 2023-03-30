@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj": {}
+    "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj": {}
   },
   "projects": {
-    "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj": {
+    "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
+        "projectUniqueName": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
         "projectName": "CalculatorService.Library",
-        "projectPath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
+        "projectPath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
         "packagesPath": "C:\\Users\\xchen_evicertia\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\obj\\",
+        "outputPath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xchen_evicertia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,14 +65,14 @@
         }
       }
     },
-    "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj": {
+    "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj",
+        "projectUniqueName": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj",
         "projectName": "CalculatorService.ServerAPI",
-        "projectPath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj",
+        "projectPath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.ServerAPI\\CalculatorService.ServerAPI.csproj",
         "packagesPath": "C:\\Users\\xchen_evicertia\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.ServerAPI\\obj\\",
+        "outputPath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.ServerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\xchen_evicertia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +89,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj": {
-                "projectPath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj"
+              "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj": {
+                "projectPath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj"
               }
             }
           }
@@ -105,7 +111,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

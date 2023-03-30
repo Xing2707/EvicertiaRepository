@@ -1,0 +1,7 @@
+CalculatorService\CalculatorService.ServerAPI\obj
+CalculatorService\CalculatorService.ServerAPI\bin
+CalculatorService\CalculatorService.Client\bin
+CalculatorService\CalculatorService.Client\obj
+CalculatorService\CalculatorService.Library\bin
+CalculatorService\CalculatorService.Library\obj
+.vs

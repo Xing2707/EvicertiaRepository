@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "7pQumzkrhfj7V2RSn1F9Xk0HQpm2iH5dTa5SAUeRLdT0kxs6fMn9OsZe0VqdVKfci4VK/YbDfpHOiDhZovEkyg==",
+  "dgSpecHash": "N4n7KZaHuGZfjSt/COYh1YNo1z1zUMdpG/+VCLm18UX+FEqswAvKPKzAUAyG/PIZUCx+iusd9L774r4jnpwDuQ==",
   "success": true,
-  "projectFilePath": "C:\\dev\\CalculatorService\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\dev\\EvicertiaRepository\\CalculatorService\\CalculatorService.Library\\CalculatorService.Library.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\xchen_evicertia\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
