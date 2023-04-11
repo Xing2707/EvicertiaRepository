@@ -12,8 +12,8 @@ namespace CalculatorService.ServerAPI.Models
 		{
 			const int CodeStatus = 400;
 			const string CodeError = "InternalError";
-			const string MessageError = "An unexpected error condition was triggered which made inpossible to fulfill the request. Please try again or contact suppert";
-			return new BadRequestModel { ErrorCode = CodeError, ErrorStatus = CodeStatus, ErrorMessage = MessageError };
+			const string MessageError = "Unable to process request: ";
+			return new BadRequestModel { ErrorCode = CodeError, ErrorStatus = CodeStatus, ErrorMessage = MessageError + message };
 		}
 	}
 }

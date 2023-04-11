@@ -1,4 +1,5 @@
 using CalculatorService.ServerAPI.Filters;
+using CalculatorService.ServerAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CalculatorService.ServerAPI
@@ -8,6 +9,10 @@ namespace CalculatorService.ServerAPI
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
+			builder.Logging.ClearProviders();
+			builder.Logging.AddConsole();
+
+			builder.Services.AddRazorPages();
 
 			// Add services to the container.
 			builder.Services.AddControllers();
@@ -25,6 +30,7 @@ namespace CalculatorService.ServerAPI
 			//Add My BadRequestAttritute in swagger default BadRequest
 			builder.Services.AddControllers(option => {
 				option.Filters.Add(typeof(CustomBadRequestFilterAttribute));
+				option.Filters.Add(typeof(CustomInternaErrorFilterAttribute));
 			});
 
 			var app = builder.Build();

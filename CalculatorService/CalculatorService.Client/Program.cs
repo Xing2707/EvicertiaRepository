@@ -159,12 +159,12 @@ namespace CalculatorService.Client
 			var response = client.Execute<Journal.journalResponse>(request);
 			if(response == null)
 			{
-				Console.WriteLine("Error! No Id Encotrado");
+				Console.WriteLine(response.ErrorMessage);
 			}
 			else
 			{
 				var journalResponse = response.Data;
-				Console.Write("Operacion: " + journalResponse.Operartion + "\n Calculation: " + journalResponse.Calculation + "\n Date: " + journalResponse.Date);
+				Console.Write("Operacion: " + journalResponse.Operation + "\n Calculation: " + journalResponse.Calculation + "\n Date: " + journalResponse.Date);
 			}
 		}
 		#endregion
@@ -300,9 +300,9 @@ namespace CalculatorService.Client
 						div.Dividend = int.Parse(TestInput(Console.ReadLine()));
 						div.Divisor = int.Parse(TestInput(Console.ReadLine()));
 
-						while (div.Dividend < 0)
+						while (div.Divisor == 0)
 						{
-							Console.WriteLine("Error! No Puedes Introducir Numero 0 como divisor!");
+							Console.WriteLine("Error! No Puedes Introducir Numero 0 como divisor!\n Introduzca otra vez numero de divisor!");
 							div.Divisor = int.Parse(TestInput(Console.ReadLine()));
 						};
 
@@ -323,7 +323,7 @@ namespace CalculatorService.Client
 
 						var query = new Journal.JournalRequet();
 						Console.WriteLine("Introduce ID de historia");
-						query.Id = Console.ReadLine();
+						query.Id = Console.ReadLine().ToUpper();
 						while (string.IsNullOrEmpty(query.Id) || query.Id.Length != 5)
 						{
 							Console.WriteLine("Error! No Puedes no introducir nada o id de un longitud diferente que 5");

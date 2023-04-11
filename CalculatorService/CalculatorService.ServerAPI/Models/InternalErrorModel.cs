@@ -8,12 +8,12 @@ namespace CalculatorService.ServerAPI.Models
 		public int ErrorStatus { get; set; }
 		public string ErrorMessage { get; set; }
 
-		public static InternalErrorModel error(string message)
+		public static InternalErrorModel Error()
 		{
 			const string CodeError = "InternalError";
 			const int StatusCode = 500;
-			const string MessageError = "Unable to process request: ";
-			return new InternalErrorModel { ErrorCode = CodeError, ErrorStatus = StatusCode, ErrorMessage = MessageError + message};
+			const string MessageError = "An unexpected error condition was triggered which made impossible to fulfill the request. Please try again or contact support.";
+			return new InternalErrorModel { ErrorCode = CodeError, ErrorStatus = StatusCode, ErrorMessage = MessageError};
 		}
 	}
 }

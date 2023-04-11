@@ -11,5 +11,29 @@ namespace CalculatorService.ServerAPI.Controllers
 			result[1] = dividend%divisor;
 			return result;
 		}
+
+		public void SaveDiv(IHeaderDictionary headers, int dividend, int divisor, int quotient, int remainder)
+		{
+			var key = "X-Evi-Tracking-Id";
+			var trakingId = headers[key];
+
+			const String OPERATION = "Div";
+			var journalController = new JournalController();
+			var calculation = "";
+			var date = DateTime.Now.ToString();
+			var data = new string[3];
+
+			if (trakingId != "xxx")
+			{
+				calculation = dividend + " / " + divisor + " = " + quotient + "\n Restor: " + remainder;
+				date = Convert.ToDateTime(date).ToString("yyyy-MM-ddTH:mm:ssZ");
+
+				data[0] = OPERATION;
+				data[1] = calculation;
+				data[2] = date;
+
+				journalController.SaveJournalData(trakingId, data);
+			}
+		}
 	}
 }

@@ -13,6 +13,7 @@
 			public static AddResponse result(int value) {
 				return new AddResponse { Sum = value };
 			}
+
 		}
 	}
 }
