@@ -1,34 +1,37 @@
 # Calculator Service
-- [Calculator Client](#calculator-client)
-- Calculator Librery
-- Caluculator Server
-
----
 
 ## Calculator Client
 
 ### Introduction
 
 Calculator Client is program Created for core, he function is print menu in console, get input operation selected send resquest a service and get service response.
-[imagen Client Console](https://i.imgur.com/NsMNjOb.png)
+![imagen Client Console](https://i.imgur.com/NsMNjOb.png)
 
 ### Functions
 
 - TestInput
-[imagen Test Input Function](https://i.imgur.com/7JWfXYK.png);
+
+![imagen Test Input Function](https://i.imgur.com/7JWfXYK.png)
+
 This function in paramete ask input type string while input parse intege is false print error message ask new input to input parse intege is true
 
 - Save
-[imagen Save Function](https://i.imgur.com/Az0oyx2.png)
+
+![imagen Save Function](https://i.imgur.com/Az0oyx2.png)
+
 This function ask user introduce input, fromat input to lowercase while input is different "s" or "n" print error message ask new input to input is "s" or "n"
 if input is "s" return true else return false
 
 -CreateId
-[imagen CreateId Function](https://i.imgur.com/rewchCV.png)
+
+![imagen CreateId Function](https://i.imgur.com/rewchCV.png)
+
 This function create id in random string with length is 5
 
 -SendRequest
-[imagen SedRequest](https://i.imgur.com/cmBz7pN.png)
+
+![imagen SedRequest](https://i.imgur.com/cmBz7pN.png)
+
 This function in paramete ask integer number, string host, string path, object data
 If number selected is smaller than 6 call function Save obtain Save return variable
 Create new RestClient with host
@@ -43,7 +46,9 @@ Add body format json with data
 in switch with number selected call number selected function
 
 -GetResponse
-[imagen getResponse Function](https://i.imgur.com/bYOIr4r.png)
+
+![imagen getResponse Function](https://i.imgur.com/bYOIr4r.png)
+
 This functions inparmete ask RestClient, REstRequest
 create variable get response execute
 if response is null print response error messager
@@ -52,11 +57,15 @@ else get response data and print result
 ### Enum
 
 -Menu
-[imagen menu](https://i.imgur.com/X5eT01C.png)
+
+![imagen menu](https://i.imgur.com/X5eT01C.png)
+
 The menu is using in client menu for each operation convert string selected in number
 
 -Urls
-[imagen urls](https://i.imgur.com/K05FIEZ.png)
+
+![imagen urls](https://i.imgur.com/K05FIEZ.png)
+
 The urls is using for request path
 
 ### Nuggets
@@ -102,7 +111,7 @@ The urls is using for request path
 
 Calculato Server is program create with framework WEB API the Server is responsible receive resquest by client, validate request calculate request data and return result in response.
 
-[Imagen Web Api Swagger](https://i.imgur.com/DO0Q7Ck.png)
+![Imagen Web Api Swagger](https://i.imgur.com/DO0Q7Ck.png)
 
 ### Cotrollers
 
