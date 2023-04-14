@@ -33,7 +33,7 @@ namespace CalculatorService.Client
 		{
 			const int NUMBER = 6;
 			bool option = false;
-			if( num < NUMBER){
+			if (num < NUMBER) {
 				option = Save();
 			}
 
@@ -55,9 +55,9 @@ namespace CalculatorService.Client
 				var id = CreateId();
 				request.AddHeader("X-Evi-Tracking-Id", id);
 				_clientLogs.Trace($"add Traking-Id {id} in request header with id created for save journal");
-				Console.WriteLine("Se han generado id para puedes bucar historial \n tu id es: "+id);
+				Console.WriteLine("Se han generado id para puedes bucar historial \n tu id es: " + id);
 			}
-			else if(num < NUMBER)
+			else if (num < NUMBER)
 			{
 				request.AddHeader("X-Evi-Tracking-Id", "xxx");
 				_clientLogs.Trace("add Traking-id xxx in request header for dont save journal");
@@ -102,6 +102,18 @@ namespace CalculatorService.Client
 
 		//	return response.Data; //< FIXME: Modify at your risk, whatever.
 		//}
+
+		private static void GetResponse<TRequest,TResponse>(RestClient client, RestRequest request,string name)
+		{
+			var response = client.Execute<TResponse>(request);
+			if (response == null) {
+				Console.WriteLine(response.ErrorMessage);
+				_clientLogs.Error($"bad {name} response, print response error message.");
+			}else{
+				Console.WriteLine("resultado: " + response.Data);
+				_clientLogs.Trace($"{name} response correct get {name} result and print");
+			}
+		}
 
 		//Functions getresponse of each operations
 		private static void GetAddResponse(RestClient client, RestRequest request)
