@@ -103,17 +103,17 @@ namespace CalculatorService.Client
 		//	return response.Data; //< FIXME: Modify at your risk, whatever.
 		//}
 
-		private static void GetResponse<TRequest,TResponse>(RestClient client, RestRequest request,string name)
-		{
-			var response = client.Execute<TResponse>(request);
-			if (response == null) {
-				Console.WriteLine(response.ErrorMessage);
-				_clientLogs.Error($"bad {name} response, print response error message.");
-			}else{
-				Console.WriteLine("resultado: " + response.Data);
-				_clientLogs.Trace($"{name} response correct get {name} result and print");
-			}
-		}
+		//private static void GetResponse<TRequest,TResponse>(RestClient client, RestRequest request,string name)
+		//{
+		//	var response = client.Execute<TResponse>(request);
+		//	if (response == null) {
+		//		Console.WriteLine(response.ErrorMessage);
+		//		_clientLogs.Error($"bad {name} response, print response error message.");
+		//	}else{
+		//		Console.WriteLine("resultado: " + response.Data);
+		//		_clientLogs.Trace($"{name} response correct get {name} result and print");
+		//	}
+		//}
 
 		//Functions getresponse of each operations
 		private static void GetAddResponse(RestClient client, RestRequest request)
