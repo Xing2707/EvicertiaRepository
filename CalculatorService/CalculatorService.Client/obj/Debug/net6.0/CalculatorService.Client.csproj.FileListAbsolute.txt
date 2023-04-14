@@ -59,3 +59,5 @@ C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\obj\Debug\
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\obj\Debug\net6.0\CalculatorService.Client.pdb
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\obj\Debug\net6.0\CalculatorService.Client.genruntimeconfig.cache
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\obj\Debug\net6.0\ref\CalculatorService.Client.dll
+C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\bin\Debug\net6.0\NLog.config
+C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.Client\bin\Debug\net6.0\NLog.dll

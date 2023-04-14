@@ -1,4 +1,5 @@
 ﻿using CalculatorService.Library;
+using NLog;
 using RestSharp;
 
 namespace CalculatorService.Client
@@ -10,9 +11,11 @@ namespace CalculatorService.Client
 		//This function validates the input, while ipunt is not parsing to the integer, it displays an error message and asks the user to enter another value until the entered value can be passed to an integer and return the value
 		private static string TestInput(string input)
 		{
+			loggs.saveInfor("Test Input");
 			//While input is different than integer
 			while (!int.TryParse(input, out var output))
 			{
+				loggs.saveInfor("Bad Input");
 				Console.WriteLine("Error! Introduce un numero correcto");
 				input = Console.ReadLine();
 			}
@@ -212,8 +215,7 @@ namespace CalculatorService.Client
 		#endregion
 
 		#region EnumAndConstVariable
-		private const string HOST = "http://localhost:5062/CalculatorService/";
-		public enum menu
+		private enum menu
 		{
 			suma =1,
 			diferencia = 2,
@@ -223,7 +225,7 @@ namespace CalculatorService.Client
 			Consulta = 6
 		}
 
-		public class urls{
+		private static class urls{
 			public const string add = HOST + "Add";
 			public const string sub = HOST + "Sub";
 			public const string mult = HOST + "Mult";
@@ -231,19 +233,24 @@ namespace CalculatorService.Client
 			public const string sqrt = HOST + "Sqrt";
 			public const string journal = HOST + "Journal/";
 		}
+
+		private const string HOST = "http://localhost:5062/CalculatorService/";
+		private static int num;
+		private static string input;
+		private static Logs loggs = new Logs();
+
 		#endregion
 
 		public static void Main()
 		{
-			int num;
 			//Calculator Menu
 			do
 			{
-				string input;
 				Console.WriteLine("\nCALCULATOR\n 1.Suma\n 2.Diferencia\n 3.Multiplicacion\n 4.Division\n 5.Raiz\n 6.Consulta Historial con ID\n 7Salir");
 				input = Console.ReadLine();
 				while (!int.TryParse(input, out var output) || int.Parse(input) > 7)
 				{
+					loggs.saveInfor("Bad Input!");
 					Console.WriteLine("Error! Introduce un numero correcto!");
 					input = Console.ReadLine();
 				}
@@ -256,11 +263,14 @@ namespace CalculatorService.Client
 
 						//Initialize array object
 						sum.Addends = new int[3];
+						loggs.saveInfor("Inicialize Array[3]");
+
 						Console.WriteLine("Introduce Numero que quieres sumar");
 
 						//fill array object with input
 						for (var i = 0; i < sum.Addends.Length; i++)
 						{
+							loggs.saveInfor("Set input  in array");
 							sum.Addends[i] = int.Parse(TestInput(Console.ReadLine()));
 						}
 

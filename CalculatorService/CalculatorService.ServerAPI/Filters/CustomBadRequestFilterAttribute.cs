@@ -1,6 +1,7 @@
 ﻿using CalculatorService.ServerAPI.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using CalculatorService.ServerAPI.Controllers;
 
 namespace CalculatorService.ServerAPI.Filters
 {
@@ -11,6 +12,8 @@ namespace CalculatorService.ServerAPI.Filters
 		{
 			if (!context.ModelState.IsValid)
 			{
+				var logsControlle = new LogsController();
+				logsControlle.saveErrorLog(context.ModelState.Values.First().Errors.First().ErrorMessage);
 				context.Result = new BadRequestObjectResult(BadRequestModel.error(context.ModelState.Values.First().Errors.First().ErrorMessage));
 			}
 			base.OnActionExecuting(context);

@@ -10,14 +10,14 @@ namespace CalculatorService.Library
 	{
 		public class JournalRequet
 		{
-			public string Id { get; set; }
+			public string? Id { get; set; }
 		}
 
 		public class journalResponse
 		{
-			public string Operation { get; set; }
-			public string Calculation { get; set; }
-			public string  Date { get; set; }
+			public string? Operation { get; set; }
+			public string? Calculation { get; set; }
+			public string?  Date { get; set; }
 
 			public static journalResponse Result(string operation, string calculation, string date)
 			{

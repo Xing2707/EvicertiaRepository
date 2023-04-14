@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Connections.Features;
+using System.Runtime.CompilerServices;
 
 namespace CalculatorService.ServerAPI.Models
 {

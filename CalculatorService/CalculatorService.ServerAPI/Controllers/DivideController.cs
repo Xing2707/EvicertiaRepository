@@ -19,12 +19,14 @@ namespace CalculatorService.ServerAPI.Controllers
 
 			const String OPERATION = "Div";
 			var journalController = new JournalController();
-			var calculation = "";
+			var logController = new LogsController();
+			var calculation ="";
 			var date = DateTime.Now.ToString();
 			var data = new string[3];
 
 			if (trakingId != "xxx")
 			{
+				logController.saveInfor($"Find Traking-Id {trakingId}");
 				calculation = dividend + " / " + divisor + " = " + quotient + "\n Restor: " + remainder;
 				date = Convert.ToDateTime(date).ToString("yyyy-MM-ddTH:mm:ssZ");
 
@@ -33,6 +35,9 @@ namespace CalculatorService.ServerAPI.Controllers
 				data[2] = date;
 
 				journalController.SaveJournalData(trakingId, data);
+			}else{
+				logController.saveInfor($"Find Traling-Id {trakingId}");
+				logController.saveInfor("Dont save Journal");
 			}
 		}
 	}

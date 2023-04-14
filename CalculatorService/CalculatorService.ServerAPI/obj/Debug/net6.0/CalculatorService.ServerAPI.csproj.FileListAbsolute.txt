@@ -69,3 +69,5 @@ C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\obj\Deb
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\obj\Debug\net6.0\CalculatorService.ServerAPI.csproj.CopyComplete
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\obj\Debug\net6.0\CalculatorService.ServerAPI.genruntimeconfig.cache
 C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\obj\Debug\net6.0\ref\CalculatorService.ServerAPI.dll
+C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\bin\Debug\net6.0\NLog.dll
+C:\dev\EvicertiaRepository\CalculatorService\CalculatorService.ServerAPI\bin\Debug\net6.0\NLog.config

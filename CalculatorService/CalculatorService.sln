@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.ServerAPI", "CalculatorService.ServerAPI\CalculatorService.ServerAPI.csproj", "{5A804C1F-A864-49FD-B1FE-5AAE78AD0DC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.ServerAPI", "CalculatorService.ServerAPI\CalculatorService.ServerAPI.csproj", "{5A804C1F-A864-49FD-B1FE-5AAE78AD0DC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Client", "CalculatorService.Client\CalculatorService.Client.csproj", "{395781A1-C63B-4BBE-B6DA-BF00E953AD2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Client", "CalculatorService.Client\CalculatorService.Client.csproj", "{395781A1-C63B-4BBE-B6DA-BF00E953AD2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Library", "CalculatorService.Library\CalculatorService.Library.csproj", "{CE772130-82EF-48C8-A2FA-215A365E515F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Library", "CalculatorService.Library\CalculatorService.Library.csproj", "{CE772130-82EF-48C8-A2FA-215A365E515F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

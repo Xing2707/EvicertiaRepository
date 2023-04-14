@@ -10,7 +10,7 @@
 		{
 			public int Sum { get; set; }
 
-			public static AddResponse result(int value) {
+			public static AddResponse Result(int value) {
 				return new AddResponse { Sum = value };
 			}
 
