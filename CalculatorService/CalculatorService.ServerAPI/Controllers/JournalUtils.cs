@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NLog;
 using System.Collections.Concurrent;
 
 namespace CalculatorService.ServerAPI.Controllers
 {
-	public class JournalController : Controller
+	public static class JournalUtils
 	{
 		private static	ConcurrentDictionary<string, string[]> journalDictionary = new ConcurrentDictionary<string, string[]>();
-		private static LogsController logsController = new LogsController();
+		private static Logger _serverLogger = LogManager.GetCurrentClassLogger();
 
-		public void SaveJournalData(string id, string[] value)
+		public static void SaveJournalData(string id, string[] value)
 		{
 			journalDictionary.TryAdd(id, value);
-			logsController.saveInfor($"Save journal {id}");
+			_serverLogger.Info($"Save journal {id}");
 		}
 
-		public string[] GetJournalData(string id)
+		public static string[] GetJournalData(string id)
 		{
-			logsController.saveInfor($"Get journal data {id}");
+			_serverLogger.Info($"Get journal data {id}");
 			return journalDictionary.GetValueOrDefault(id);
 		}
 

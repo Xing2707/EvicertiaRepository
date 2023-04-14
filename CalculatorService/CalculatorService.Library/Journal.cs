@@ -8,9 +8,9 @@ namespace CalculatorService.Library
 {
 	public class Journal
 	{
-		public class JournalRequet
+		public class JournalRequest
 		{
-			public string? Id { get; set; }
+			public string? Id { get; set;}
 		}
 
 		public class journalResponse
@@ -28,7 +28,7 @@ namespace CalculatorService.Library
 			{
 				const string OPERATION = "null";
 				const string CALCULATION = "No existe tal ID que buscas";
-				string date = DateTime.Now.ToString();
+				var date = DateTime.UtcNow.ToString();
 				return new journalResponse { Operation = OPERATION, Calculation = CALCULATION, Date = date };
 			}
 		}

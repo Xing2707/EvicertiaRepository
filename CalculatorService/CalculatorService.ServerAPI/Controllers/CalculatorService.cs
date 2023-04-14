@@ -13,7 +13,7 @@ namespace CalculatorService.ServerAPI.Controllers
 	[Route("[controller]")]
 	public class CalculatorService : ControllerBase
 	{
-		private static LogsController logsController = new LogsController();
+		private static Logger _serverLogger = LogManager.GetCurrentClassLogger();
 		private static string LogInternalError = InternalErrorModel.Error().ErrorMessage.ToString();
 
 		//Url http://localhost:5062/CalculatorService/Add
@@ -23,19 +23,16 @@ namespace CalculatorService.ServerAPI.Controllers
 			//Create variable,AddressController object usin funtion calculateAdd calculate request return result in variable finaly return result using Addition.AddResponse static function result(integer).
 			if (request == null || request.Addends?.Any() != true)
 			{
-				logsController.saveErrorLog(LogInternalError);
-
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor("Request correct");
-			logsController.saveInfor($" Calculate addition {string.Join(',', request.Addends)}");
-			var num = 0;
-			var addressController = new AdditionController();
-			num = addressController.CalculateAdd(request.Addends);
-			logsController.saveInfor($"Result {num}");
+			_serverLogger.Info("Request correct");
+			_serverLogger.Info($" Calculate addition {string.Join(',', request.Addends)}");
+			var num = AdditionUtils.CalculateAdd(request.Addends);
+			_serverLogger.Info($"Result {num}");
 
-			addressController.SaveAdd(Request.Headers, request.Addends, num);
+			AdditionUtils.SaveAdd(Request.Headers, request.Addends, num);
 			return Addition.AddResponse.Result(num);
 		}
 
@@ -44,19 +41,16 @@ namespace CalculatorService.ServerAPI.Controllers
 		{
 			if(request == null || (request.Subtrahend == 0 && request.Minuend == 0))
 			{
-				logsController.saveErrorLog(LogInternalError);
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor("Request correct");
-			logsController.saveInfor($"Calculate Subtraction {request.Subtrahend},{request.Minuend}");
+			_serverLogger.Info("Request correct");
+			_serverLogger.Info($"Calculate Subtraction {request.Subtrahend},{request.Minuend}");
+			var num = SubtractionUtils.CalculateSub(request.Minuend, request.Subtrahend);
+			_serverLogger.Info($"Result {num}");
 
-			var num = 0;
-			var subController = new SubtractioController();
-			num = subController.CalculateSub(request.Minuend, request.Subtrahend);
-			logsController.saveInfor($"Result {num}");
-
-			subController.SaveSub(Request.Headers, request.Minuend, request.Subtrahend, num);
+			SubtractionUtils.SaveSub(Request.Headers, request.Minuend, request.Subtrahend, num);
 
 			return Subtraction.SubResponse.Result(num);
 		}
@@ -65,19 +59,17 @@ namespace CalculatorService.ServerAPI.Controllers
 		public ActionResult <Multiplication.MultResponse> Post(Multiplication.MultRequest request)
 		{
 			if(request == null || request.Factors?.Any() != true){
-				logsController.saveErrorLog(LogInternalError);
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor("Request correct");
-			logsController.saveInfor($"calculate Multiplication {string.Join(',',request.Factors)}");
+			_serverLogger.Info("Request correct");
+			_serverLogger.Info($"calculate Multiplication {string.Join(',',request.Factors)}");
 
-			var num = 0;
-			var multController = new MultiplicationController();
-			num = multController.CalculateMult(request.Factors);
-			logsController.saveInfor($"Result {num}");
+			var num =MultiplicationUtils.CalculateMult(request.Factors);
+			_serverLogger.Info($"Result {num}");
 
-			multController.SaveMult(Request.Headers,request.Factors,num);
+			MultiplicationUtils.SaveMult(Request.Headers,request.Factors,num);
 
 			return Multiplication.MultResponse.Result(num);
 		}
@@ -88,23 +80,20 @@ namespace CalculatorService.ServerAPI.Controllers
 			const int ZERO = 0;
 			if ((request.Divisor == ZERO) || request == null || (request.Dividend == ZERO && request.Divisor == ZERO))
 			{
-				logsController.saveErrorLog(LogInternalError);
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor("Request correct");
-			logsController.saveInfor($"calculate Divide {request.Dividend},{request.Divisor}");
+			_serverLogger.Info("Request correct");
+			_serverLogger.Info($"calculate Divide {request.Dividend},{request.Divisor}");
 
 			var array = new int[2];
-			var quotient = 0;
-			var remainder = 0;
-			var divController = new DivideController();
-			array = divController.CalculateDiv(request.Dividend, request.Divisor);
-			quotient = array.First();
-			remainder = array.Last();
-			logsController.saveInfor($"Result {quotient} remainder {remainder}");
+			array = DivideUtils.CalculateDiv(request.Dividend, request.Divisor);
+			var quotient = array.First();
+			var remainder = array.Last();
+			_serverLogger.Info($"Result {quotient} remainder {remainder}");
 
-			divController.SaveDiv(Request.Headers,request.Dividend,request.Divisor,quotient,remainder);
+			DivideUtils.SaveDiv(Request.Headers,request.Dividend,request.Divisor,quotient,remainder);
 
 			return Divide.DivResponse.Result(quotient, remainder);
 		}
@@ -114,48 +103,45 @@ namespace CalculatorService.ServerAPI.Controllers
 		{
 			if(request == null )
 			{
-				logsController.saveErrorLog(LogInternalError);
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor("Request correct");
-			logsController.saveInfor($"Calculate Square {request.Number}");
+			_serverLogger.Info("Request correct");
+			_serverLogger.Info($"Calculate Square {request.Number}");
 
-			var num = 0;
-			var sqrtController = new SquareController();
-			num = sqrtController.CalculateSqrt(request.Number);
-			logsController.saveInfor($"Result {num}");
+			var num = SquareUtils.CalculateSqrt(request.Number);
+			_serverLogger.Info($"Result {num}");
 
-			sqrtController.SaveSqrt(Request.Headers, request.Number, num);
+			SquareUtils.SaveSqrt(Request.Headers, request.Number, num);
 
 			return Square.SqrtResponse.Result(num);
 		}
 
 		[HttpPost("Journal/{id}")]
 
-		public ActionResult <Journal.journalResponse> Post(Journal.JournalRequet request)
+		public ActionResult <Journal.journalResponse> Post(Journal.JournalRequest request)
 		{
 			const int LENGTH = 5;
 			if(request == null || request.Id.Length != LENGTH)
 			{
-				logsController.saveErrorLog(LogInternalError);
+				_serverLogger.Error(LogInternalError);
 				return new ObjectResult(InternalErrorModel.Error());
 			}
 
-			logsController.saveInfor($"Request correct");
-			logsController.saveInfor($"Search Tracking-Id {request.Id}");
+			_serverLogger.Info($"Request correct");
+			_serverLogger.Info($"Search Tracking-Id {request.Id}");
 
-			var journalController = new JournalController();
-			var dictionary = journalController.GetJournalData(request.Id);
+			var dictionary = JournalUtils.GetJournalData(request.Id);
 			if(dictionary == null){
-				logsController.saveErrorLog("Error! Tracking-Id not found!");
+				_serverLogger.Error("Error! Tracking-Id not found!");
 				return Journal.journalResponse.NoIdSelect();
 			}else{
 
 				var operation = dictionary.First();
 				var calculation = dictionary[1];
-				var date = dictionary[2];
-				logsController.saveInfor($"Result {operation};{calculation};{date}");
+				var date = dictionary.Last();
+				_serverLogger.Info($"Result {operation};{calculation};{date}");
 
 				return Journal.journalResponse.Result(operation, calculation, date);
 			}

@@ -1,6 +1,7 @@
 ﻿using CalculatorService.ServerAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using NLog;
 
 namespace CalculatorService.ServerAPI.Filters
 {

@@ -6,7 +6,6 @@
 		{
 			public int Dividend { get; set; }
 			public int Divisor { get; set; }
-
 		}
 
 		public class DivResponse
