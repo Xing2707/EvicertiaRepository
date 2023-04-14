@@ -1,0 +1,60 @@
+2023-04-14 12:17:22.9834 
+     Request correct
+
+2023-04-14 12:17:23.0208 
+     Request correct
+
+2023-04-14 12:17:23.0208 
+      Calculate addition 2,3,4
+
+2023-04-14 12:17:23.0208 
+      Calculate addition 2,3,4
+
+2023-04-14 12:17:23.0208 
+     Result 9
+
+2023-04-14 12:17:23.0208 
+     Result 9
+
+2023-04-14 12:17:23.0208 
+     Find Traking-Id JUWHD
+
+2023-04-14 12:17:23.0208 
+     Find Traking-Id JUWHD
+
+2023-04-14 12:17:23.0208 
+     Save journal JUWHD
+
+2023-04-14 12:17:23.0208 
+     Save journal JUWHD
+
+2023-04-14 12:17:37.6079 
+     Request correct
+
+2023-04-14 12:17:37.6079 
+     Request correct
+
+2023-04-14 12:17:37.6172 
+     Calculate Subtraction 4,3
+
+2023-04-14 12:17:37.6172 
+     Calculate Subtraction 4,3
+
+2023-04-14 12:17:37.6172 
+     Result 1
+
+2023-04-14 12:17:37.6172 
+     Result 1
+
+2023-04-14 12:17:37.6172 
+     Find Traling-Id xxx
+
+2023-04-14 12:17:37.6172 
+     Find Traling-Id xxx
+
+2023-04-14 12:17:37.6172 
+     Dont save Journal
+
+2023-04-14 12:17:37.6172 
+     Dont save Journal
+

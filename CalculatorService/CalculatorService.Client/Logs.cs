@@ -4,15 +4,15 @@ namespace CalculatorService.Client
 {
 	public class Logs
 	{
-		private static Logger logger = LogManager.GetCurrentClassLogger();
+		private static Logger clienteLogger = LogManager.GetCurrentClassLogger();
 
-		public void saveInfor(string infor)
+		public void saveTrace(string trace)
 		{
-			logger.Info("\n     " + infor + "\n");
+			clienteLogger.Trace("\n     " + trace + "\n");
 		}
 		public void saveError(string error)
 		{
-			logger.Error(error);
+			clienteLogger.Error("\n     " + error + "\n");
 		}
 	}
 }
