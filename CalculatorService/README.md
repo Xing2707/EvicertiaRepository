@@ -1,44 +1,9 @@
 # Calculator Service
 - [Calculator Client](#calculator-client)
-	* [Introduction](#Introduction)
-	* Functions
-		+ TestInput
-		+ Save
-		+ CreateId
-		+ SendRequest and GetResponse
-	* Enum
-		+ Menu
-		+ Urls
-	* Nuggets
-		+ RestSharp
-		+ NLog
 - Calculator Librery
-	* Addition
-	* Subtraction
-	* Multiplication
-	* Divide
-	* Square
-	* Journal
 - Caluculator Server
-	* Introduction
-	* Controlles
-		+ Addition Controlle
-		+ Subtraction Controlle
-		+ Multiplication Controlle
-		+ Divide Controlle
-		+ Square Controlle
-		+ Journal Controlle
-	* Models
-		+ Bad Request Model
-		+ Interna Error Model
-	* Filters
-		+ Bad Request Filters
-		+ Interna Error Filters
-	* Nuggets
-		+ RestSharp
-		+ NLog
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 ## Calculator Client
 
@@ -50,5 +15,139 @@ Calculator Client is program Created for core, he function is print menu in cons
 ### Functions
 
 - TestInput
-[imagen Test Input](https://i.imgur.com/7JWfXYK.png);
-	*In paramete ask input type string while input parse intege is false
+[imagen Test Input Function](https://i.imgur.com/7JWfXYK.png);
+This function in paramete ask input type string while input parse intege is false print error message ask new input to input parse intege is true
+
+- Save
+[imagen Save Function](https://i.imgur.com/Az0oyx2.png)
+This function ask user introduce input, fromat input to lowercase while input is different "s" or "n" print error message ask new input to input is "s" or "n"
+if input is "s" return true else return false
+
+-CreateId
+[imagen CreateId Function](https://i.imgur.com/rewchCV.png)
+This function create id in random string with length is 5
+
+-SendRequest
+[imagen SedRequest](https://i.imgur.com/cmBz7pN.png)
+This function in paramete ask integer number, string host, string path, object data
+If number selected is smaller than 6 call function Save obtain Save return variable
+Create new RestClient with host
+Create new RestRquest whit path and Method Post
+Add request header
+If Save return is true and num is smaller than 6
+Call function CreateId obtian CreateId return variable
+Add request header with id created
+Else if num is smaller than 6
+Add request header with id xxx becauser function sevar returno false
+Add body format json with data
+in switch with number selected call number selected function
+
+-GetResponse
+[imagen getResponse Function](https://i.imgur.com/bYOIr4r.png)
+This functions inparmete ask RestClient, REstRequest
+create variable get response execute
+if response is null print response error messager
+else get response data and print result
+
+### Enum
+
+-Menu
+[imagen menu](https://i.imgur.com/X5eT01C.png)
+The menu is using in client menu for each operation convert string selected in number
+
+-Urls
+[imagen urls](https://i.imgur.com/K05FIEZ.png)
+The urls is using for request path
+
+### Nuggets
+
+-RestSharp(109.0.1)
+	install and using in Service and Client
+
+-Nlogs(5.1.3)
+	install and using in Service and Client
+
+---
+
+## Calculator Librery
+
+- Addition
+	* AdditionRequest class
+	* AdditionResponse class
+	* Using in Client and Service
+- Subtraction
+	* SubtractionRequest class
+	* SubtractionResponse class
+	* Using in Client and Service
+- Multiplication
+	* MultiplicationRequest class
+	* MUltiplicationResponse class
+	* Using in Client and Service
+- Divide
+	* DivideRequest class
+	* DivideResponse class
+	* Using in Client and Service
+- Square
+	* SquareRequest class
+	* SquareResponse class
+	* Using in Client and Service
+- Journal
+	* JournalRequest class
+	* JournalResponse class
+	* Using in Client and Service
+
+## Caluculator Server
+
+### Introduction
+
+Calculato Server is program create with framework WEB API the Server is responsible receive resquest by client, validate request calculate request data and return result in response.
+
+[Imagen Web Api Swagger](https://i.imgur.com/DO0Q7Ck.png)
+
+### Cotrollers
+
+- Addition Controlle
+	* the cotroller have function calculate addtion.
+	* the cotroller have function save for save Journal if user ask save.
+	* Using solo Service.
+- Subtraction Controlle
+	* the cotroller have function calculate subtraction.
+	* the cotroller have function save for save Journal if user ask save.
+	* Using solo Service.
+- Multiplication Controlle
+	* the cotroller have function calculate multiplication.
+	* the cotroller have function save for save Journal if user ask save.
+	* Using solo Service.
+- Divide Controlle
+	* the cotroller have function calculate divide.
+	* the cotroller have function save for save Journal if user ask save.
+	* Using solo Service.
+- Square Controlle
+	* the cotroller have function calculate square.
+	* the cotroller have function save for save Journal if user ask save.
+	* Using solo Service.
+- Journal Controlle
+	* the cotroller have function savejournal.
+	* the cotroller have function getjournal.
+	* Using solo Service.
+
+### Models
+
+-BadRequstModel
+
+-InternalErrorModel
+
+### filters
+
+- CustomBadRequstFilterAttribute
+	* overwriter swager bad request error default using badRequstModel
+
+- CustomInternaFilterAttribute
+
+* overwrites swagger internal error deafult using InternalErrorModel
+
+### Nuggets
+	
+- RestSharp
+
+-NLog

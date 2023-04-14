@@ -1,7 +1,10 @@
 CalculatorService/CalculatorService.ServerAPI/obj/*
+CalculatorService/CalculatorService.ServerAPI/CalculatorService.ServerApi.csproj.user
 CalculatorService/CalculatorService.ServerAPI/bin/*
+CalculatorService/CalculatorService.ServerAPI/Files/*
 CalculatorService/CalculatorService.Client/bin/*
 CalculatorService/CalculatorService.Client/obj/*
+CalculatorService/CalculatorService.Client/Files/*
 CalculatorService/CalculatorService.Library/bin/*
 CalculatorService/CalculatorService.Library/obj/*
 CalculatorService/.vs/*

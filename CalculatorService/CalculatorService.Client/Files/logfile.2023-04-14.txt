@@ -205,3 +205,6 @@
 2023-04-14 13:55:02.4691 
      Inicialize caluculato menu
 
+2023-04-14 15:54:18.1973 
+     Inicialize caluculato menu
+
