@@ -14,7 +14,7 @@ namespace CalculatorService.ServerAPI.Filters
 			{
 				var logsControlle = new LogsController();
 				logsControlle.saveErrorLog(context.ModelState.Values.First().Errors.First().ErrorMessage);
-				context.Result = new BadRequestObjectResult(BadRequestModel.error(context.ModelState.Values.First().Errors.First().ErrorMessage));
+				context.Result = new BadRequestObjectResult(BadRequestModel.Error(context.ModelState.Values.First().Errors.First().ErrorMessage));
 			}
 			base.OnActionExecuting(context);
 		}

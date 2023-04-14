@@ -127,3 +127,81 @@
 2023-04-14 12:18:51.8327 
      Input correct
 
+2023-04-14 13:22:56.6088 
+     Inicialize caluculato menu
+
+2023-04-14 13:25:51.8271 
+     Inicialize caluculato menu
+
+2023-04-14 13:26:46.0829 
+     Inicialize caluculato menu
+
+2023-04-14 13:54:11.6532 
+     Inicialize caluculato menu
+
+2023-04-14 13:54:59.3373 
+     Get menu input
+
+2023-04-14 13:54:59.3373 
+     Input correct
+
+2023-04-14 13:54:59.3373 
+     Inicialize calculate addition
+
+2023-04-14 13:54:59.3373 
+     Inicialize array[3]
+
+2023-04-14 13:54:59.3373 
+     Get addition input in array
+
+2023-04-14 13:54:59.6803 
+     Test Input
+
+2023-04-14 13:54:59.6803 
+     Input Correct
+
+2023-04-14 13:55:00.0007 
+     Test Input
+
+2023-04-14 13:55:00.0007 
+     Input Correct
+
+2023-04-14 13:55:00.3521 
+     Test Input
+
+2023-04-14 13:55:00.3521 
+     Input Correct
+
+2023-04-14 13:55:01.8178 
+     Get input format to lowercase for save or no save journal
+
+2023-04-14 13:55:01.8178 
+     Save Journal
+
+2023-04-14 13:55:01.8821 
+     Create new RestClient
+
+2023-04-14 13:55:01.8821 
+     Create nee RestRequest
+
+2023-04-14 13:55:01.8821 
+     Add request header
+
+2023-04-14 13:55:01.8821 
+     Crate traking-id random with length 5
+
+2023-04-14 13:55:01.8821 
+     add Traking-Id EXFPL in request header with id created for save journal
+
+2023-04-14 13:55:01.8821 
+     Add data format json in request body
+
+2023-04-14 13:55:02.4691 
+     Create new addition response get server response
+
+2023-04-14 13:55:02.4691 
+     Addition response correct get addition result and print
+
+2023-04-14 13:55:02.4691 
+     Inicialize caluculato menu
+
