@@ -22,13 +22,13 @@ This function in paramete ask input type string while input parse intege is fals
 This function ask user introduce input, fromat input to lowercase while input is different "s" or "n" print error message ask new input to input is "s" or "n"
 if input is "s" return true else return false
 
--CreateId
+- CreateId
 
 ![imagen CreateId Function](https://i.imgur.com/rewchCV.png)
 
 This function create id in random string with length is 5
 
--SendRequest
+- SendRequest
 
 ![imagen SedRequest](https://i.imgur.com/cmBz7pN.png)
 
@@ -45,7 +45,7 @@ Add request header with id xxx becauser function sevar returno false
 Add body format json with data
 in switch with number selected call number selected function
 
--GetResponse
+- GetResponse
 
 ![imagen getResponse Function](https://i.imgur.com/ZoEF2mH.png)
 
@@ -58,13 +58,13 @@ If response return status code is different "OK" print Response ErrorMessage and
 
 ### Enum
 
--Menu
+- Menu
 
 ![imagen menu](https://i.imgur.com/X5eT01C.png)
 
 The menu is using in client menu for each operation convert string selected in number
 
--Urls
+- Urls
 
 ![imagen urls](https://i.imgur.com/K05FIEZ.png)
 
@@ -72,10 +72,10 @@ The urls is using for request path
 
 ### Nuggets
 
--RestSharp(109.0.1)
+- RestSharp(109.0.1)
 	install and using in Service and Client
 
--Nlogs(5.1.3)
+- Nlogs(5.1.3)
 	install and using in Service and Client
 
 ---
@@ -144,9 +144,9 @@ Calculato Server is program create with framework WEB API the Server is responsi
 
 ### Models
 
--BadRequstModel
+- BadRequstModel
 
--InternalErrorModel
+- InternalErrorModel
 
 ### filters
 
@@ -161,4 +161,4 @@ Calculato Server is program create with framework WEB API the Server is responsi
 	
 - RestSharp
 
--NLog
+- NLog
