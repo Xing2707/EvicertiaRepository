@@ -27,7 +27,7 @@ namespace CalculatorService.ServerAPI.Controllers
 			if (trakingId != "xxx")
 			{
 				_serverLogger.Info($"Find Traking-Id {trakingId}");
-				calculation = dividend + " / " + divisor + " = " + quotient + "\n Restor: " + remainder;
+				calculation = dividend + " / " + divisor + " = " + quotient + "\nRestor: " + remainder;
 				date = Convert.ToDateTime(date).ToString("yyyy-MM-ddTH:mm:ssZ");
 
 				data[0] = OPERATION;

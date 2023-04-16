@@ -2,6 +2,10 @@
 using NLog;
 using RestSharp;
 using System.Globalization;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 namespace CalculatorService.Client
 {
@@ -71,155 +75,54 @@ namespace CalculatorService.Client
 			switch (num)
 			{
 				case ((int)menu.Addition):
-					GetAddResponse(client, request);
+					GetResponse<Addition.AddRequest,Addition.AddResponse>(client, request,"addition");
 					break;
 				case ((int)menu.Subtraction):
-					GetSubResponse(client, request);
+					GetResponse<Subtraction.SubRequest,Subtraction.SubResponse>(client, request,"substraction");
 					break;
 				case ((int)menu.Multiplication):
-					GetMultResponse(client, request);
+					GetResponse<Multiplication.MultRequest,Multiplication.MultResponse>(client, request,"Multiplication");
 					break;
 				case ((int)menu.Divide):
-					GetDivResponse(client, request);
+					GetResponse<Divide.DivRequest, Divide.DivResponse>(client, request, "Divide");
 					break;
 				case ((int)menu.Square):
-					GetSqrtResponse(client, request);
+					GetResponse<Square.SqrtRequest,Square.SqrtResponse>(client, request, "Square");
 					break;
 				case ((int)menu.Journal):
-					GetJournalResponse(client, request);
+					GetResponse<Journal.JournalRequest, Journal.journalResponse>(client,request,"Journal");
 					break;
 			}
 		}
 
-		//private static TResponse DoRequestFor<TRequest, TResponse>(TRequest model, string url)
-		//{
-		//	RestClient client = null; //< FIXME: Create here? the client.. with all the stuff.
-		//	RestRequest request = null; //< FIXME: Build this here?
-		//	// .. populate model somehow
-		//	var response = client.Execute<TResponse>(request);
-		//	if (response == null) { }
-		//	else { }
-
-		//	return response.Data; //< FIXME: Modify at your risk, whatever.
-		//}
-
-		//private static void GetResponse<TRequest,TResponse>(RestClient client, RestRequest request,string name)
-		//{
-		//	var response = client.Execute<TResponse>(request);
-		//	if (response == null) {
-		//		Console.WriteLine(response.ErrorMessage);
-		//		_clientLogs.Error($"bad {name} response, print response error message.");
-		//	}else{
-		//		Console.WriteLine("resultado: " + response.Data);
-		//		_clientLogs.Trace($"{name} response correct get {name} result and print");
-		//	}
-		//}
-
-		//Functions getresponse of each operations
-		private static void GetAddResponse(RestClient client, RestRequest request)
+		//Generic response Function
+		private static void GetResponse<TRequest, TResponse>(RestClient client, RestRequest request, string name)
 		{
-			//Create variable get response result execute
-			var response = client.Execute<Addition.AddResponse>(request);
-			_clientLogs.Trace("Create new addition response get server response");
-
-			//If response is null show errror messager else show response result
-			if (response == null)
+			//Create response execute Generic paramete TResponse
+			var response = client.Execute<TResponse>(request);
+			
+			// If Response statud code is sucefull get response
+			if (response.IsSuccessful)
 			{
-				Console.Write(response.ErrorMessage);
-				_clientLogs.Error("bad addition response print response error message");
+				// Create data get response.Data
+				var data = response.Data;
+				// Create properties get data type after get data properties
+				var properties = data.GetType().GetProperties();
+
+				//Print Response Result using foreach
+				Console.WriteLine("Resultado:");
+				foreach (var property in properties)
+				{
+					var value = property.GetValue(data);
+					Console.WriteLine($"{property.Name} {value}");
+				}
+				_clientLogs.Trace($"{name} response correct get {name} result and print");
 			}
 			else
 			{
-				var addResponse = response.Data;
-				Console.Write("resultado: " + addResponse.Sum);
-				_clientLogs.Trace("Addition response correct get addition result and print");
-			}
-		}
-
-		private static void GetSubResponse(RestClient client, RestRequest request)
-		{
-			var response = client.Execute<Subtraction.SubResponse>(request);
-			_clientLogs.Trace("Create new subtraction response get server response");
-
-			if (response == null)
-			{
-				Console.Write(response.ErrorMessage);
-				_clientLogs.Error("bad subtraction response print response error message");
-			}
-			else
-			{
-				var subResponse = response.Data;
-				Console.Write("resultado: " + subResponse.Difference);
-				_clientLogs.Trace("Subtraction response correct get subtraction result and print");
-			}
-		}
-
-		private static void GetMultResponse(RestClient client, RestRequest request)
-		{
-			var response = client.Execute<Multiplication.MultResponse>(request);
-			_clientLogs.Trace("Create new multiplication response get server response");
-
-			if (response == null)
-			{
-				Console.Write(response.ErrorMessage);
-				_clientLogs.Error("bad multiplication response print response error message");
-			}
-			else
-			{
-				var multResponse = response.Data;
-				Console.Write("resultado: " + multResponse.Product);
-				_clientLogs.Trace("Multiplication response correct get multiplication result and print");
-			}
-		}
-		private static void GetDivResponse(RestClient client, RestRequest request)
-		{
-			var response = client.Execute<Divide.DivResponse>(request);
-			_clientLogs.Trace("Create new divide response get server response");
-
-			if (response == null)
-			{
-				Console.Write(response.ErrorMessage);
-				_clientLogs.Error("bad divide response print response error message");
-			}
-			else
-			{
-				var divResponse = response.Data;
-				Console.Write("resultado: \nCociente: " + divResponse.Quotient + "\nResto: " + divResponse.Remainder);
-				_clientLogs.Trace("Divide response correct get divide result and print");
-			}
-		}
-		private static void GetSqrtResponse(RestClient client, RestRequest request)
-		{
-			var response = client.Execute<Square.SqrtResponse>(request);
-			_clientLogs.Trace("Create new square response get server response");
-
-			if (response == null)
-			{
+				//print response ErrorMessage if response statud code not is sucefull
 				Console.WriteLine(response.ErrorMessage);
-				_clientLogs.Error("bad square response print response error message");
-			}
-			else
-			{
-				var sqrtResponse = response.Data;
-				Console.Write("resultado: " + sqrtResponse.Square);
-				_clientLogs.Trace("Square response correct get square result and print");
-			}
-		}
-
-		private static void GetJournalResponse(RestClient client, RestRequest request)
-		{
-			var response = client.Execute<Journal.journalResponse>(request);
-			_clientLogs.Trace("Create new journal response get server response");
-			if (response == null)
-			{
-				Console.WriteLine(response.ErrorMessage);
-				_clientLogs.Error("bad journal response print response error message");
-			}
-			else
-			{
-				var journalResponse = response.Data;
-				Console.Write("Operacion: " + journalResponse.Operation + "\n Calculation: " + journalResponse.Calculation + "\n Date: " + journalResponse.Date);
-				_clientLogs.Trace("Journal response correct get journal data and print");
+				_clientLogs.Error($"bad {name} response, print response error message.");
 			}
 		}
 		#endregion

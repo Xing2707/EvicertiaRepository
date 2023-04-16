@@ -47,12 +47,14 @@ in switch with number selected call number selected function
 
 -GetResponse
 
-![imagen getResponse Function](https://i.imgur.com/bYOIr4r.png)
+![imagen getResponse Function](https://i.imgur.com/ZoEF2mH.png)
 
-This functions inparmete ask RestClient, REstRequest
-create variable get response execute
-if response is null print response error messager
-else get response data and print result
+This is function generic in in paramete required resquest,response,restClient,restRequest,string name
+Create response using restClient excecute response in paramete request
+If response return "OK" status code get response.data and get response.data properties using foreach print result.
+end foreach using name for generate log.
+If response return status code is different "OK" print Response ErrorMessage and generate errorlog using name.
+
 
 ### Enum
 
